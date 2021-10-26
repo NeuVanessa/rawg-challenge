@@ -21,36 +21,44 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export const Cards = () => {
+
   const [games, setGames] = useState([]);
-  const [game, setGame] = useState({});
-  const isGames = async (id) => {
-    const response = await api.get(`games?${id}`);
-    setGames(response.data.results);
+  const fetchGames = async () => {
+    const { data } = await api.get(
+      `games?`
+    );
+    console.log(data.results);
+    setGames(data.results);
   };
 
   useEffect(() => {
-    isGames();
-    setGame();
-    //console.log(games)
-  }, [games]);
+    fetchGames();
+  }, []);
+
 
   return (
     <>
-      <SimpleBox game={game}>
+      <SimpleBox >
         <CardSimple container spacing={2} columns={16}>
           {games.length > 0 ? (
-            games.map((data) => (
-              <Card item xs={6} key={data.id}>
-                <Link to={`games/${data.id}`}>
+            games.map((game) => (
+              <Card item xs={6} key={game.id}>
+                <Link key={game.id}
+                  to={{
+                    pathname: `/game/${game.id}`,
+                    gameProps: {
+                      game: game,
+                    },
+                  }}>
                   <Image
                     component="img"
-                    image={data.background_image}
-                    alt={data.name}
+                    image={game.background_image}
+                    alt={game.name}
                   />
-                  <Item key={data.id}>
+                  <Item key={game.id}>
                     <CardDetails align="left">
-                      <Title> {data.name}</Title>
-                      <Description>{data.released} </Description>
+                      <Title> {game.name}</Title>
+                      <Description>{game.released} </Description>
                     </CardDetails>
                   </Item>
                 </Link>
