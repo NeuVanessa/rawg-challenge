@@ -3,23 +3,55 @@ import styled from '@emotion/styled';
 //Material Ui
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import Box from '@mui/material/Box';
+import CardMedia from '@mui/material/CardMedia';
 import { Grid } from '@mui/material';
 
-export const ContentCard = styled(CardContent)``;
-export const CardSimple = styled(Card)`
-  width: 100%;
-  margin: 1.1rem 0;
+//Container do Card
+export const SimpleBox = styled(Box)`
+ background: transparent;
+
 `;
+//Card Container
+export const CardSimple = styled(Grid)`
+ display:flex;
+ justify-content:center;
+ align-items:center;
+`;
+
+// O card em si
+export const Card = styled(Grid)`
+background: red;
+`;
+export const Image = styled(CardMedia)`
+display: flex;
+width: 46%;
+float: left;
+height: 128px;
+
+`;
+
+export const CardDetails = styled(Container)`
+display: column;
+width: 46%;
+float: left;
+background: white;
+height: 128px;
+
+
+`;
+
 export const Title = styled(Typography)`
-  position: relative;
-  color: #1f3042;
-  left: 50px;
+font-weight: bold;
+text-transform: uppercase;
+display: flex;
+
 `;
 
 export const Description = styled(Typography)`
-  color: black;
+// display: flex;
+//   color: red;
+
 `;
 export const Search = styled(Container)`
   min-width: 560px;
@@ -45,9 +77,7 @@ export const Search = styled(Container)`
     }
   }
 `;
-export const MainContainer = styled(Container)`
-  background: transparent;
-`;
+
 
 export const Cards = styled(Card)`
   height: 300px;

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Cards from '../../components/Cards';
 
 const Home = () => {
-
     return (
         <Cards />
     )

@@ -1,62 +1,67 @@
-import React, { useState, useEffect } from 'react'
-import { Containers, CardSimple, Title, ContentCard,Description, Search } from "./styles.js"
-import api from '../../services/api';
+import React, { useState, useEffect } from "react";
+import {
+  CardSimple,
+  Card,
+  SimpleBox,
+  Image,
+  CardDetails,
+  Title,
+  Description,
+} from "./styles.js";
+import api from "../../services/api";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import { Link } from "react-router-dom";
 
-const Cards = () => {
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  // padding: theme.spacing(8),
+  // textAlign: 'center',
+  // color: theme.palette.text.secondary,
+}));
 
-    const [games, setGames] = useState([]);
-    const apiKey = "key=8d761ba12ebd4836aeafe9e28314d84f";
+export const Cards = () => {
+  const [games, setGames] = useState([]);
+  const isGames = async (id) => {
+    const response = await api.get(`games?${id}`);
+    setGames(response.data.results);
+  };
 
-    const isGames = async () => {
-        const response = await api.get(
-            `games?${apiKey}&popular`
-        );
-        setGames(response.data.results);
-    };
-    useEffect(() => {
-        isGames();
-    }, []);
+  useEffect(() => {
+    isGames();
+    //console.log(games)
+  }, [games]);
 
-
-    return (
-
-        <Containers  xs={12} sm={12} md={6} lg={6}>
-
-            <div
-                style={{
-                    flexDirection: 'column',
-                    marginLeft: 'auto',
-                    display: 'block',
-                    marginRight: 'auto',
-                    padding: 30,
-                }}
-            >
-
-                <Title variant="h6">Listando todos os Games Populares</Title>
-
-
-                <Search>
-                    <input
-                        placeholder="Pesquise um game popular..."
-                    />
-                </Search>
-                {games.map((data) => {
-                    return (
-                        <CardSimple elevation={1}>
-
-                            <ContentCard spacing={24}>
-                                <Description gutterBottom variant="h5">
-                                    {data.name}
-                                </Description>
-
-                            </ContentCard>
-                        </CardSimple>
-                    )
-                })}
-
-            </div>
-        </Containers>
-    )
-
-}
+  return (
+    <>
+      <SimpleBox>
+        <CardSimple container spacing={2} columns={16}>
+          {games.length > 0 ? (
+            games.map((data) => (
+              <Card item xs={6} key={data.id}>
+                <Link to={`games/${data.id}`}>
+                  <Image
+                    component="img"
+                    image={data.background_image}
+                    alt={data.name}
+                  />
+                  <Item key={data.id}>
+                    <CardDetails align="left">
+                      <Title> {data.name}</Title>
+                      <Description>{data.released} </Description>
+                    </CardDetails>
+                  </Item>
+                </Link>
+              </Card>
+            ))
+          ) : (
+            <>
+              <h1>Carregando...</h1>
+            </>
+          )}
+        </CardSimple>
+      </SimpleBox>
+    </>
+  );
+};
 export default Cards;
