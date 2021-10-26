@@ -22,6 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export const Cards = () => {
   const [games, setGames] = useState([]);
+  const [game, setGame] = useState({});
   const isGames = async (id) => {
     const response = await api.get(`games?${id}`);
     setGames(response.data.results);
@@ -29,12 +30,13 @@ export const Cards = () => {
 
   useEffect(() => {
     isGames();
+    setGame();
     //console.log(games)
   }, [games]);
 
   return (
     <>
-      <SimpleBox>
+      <SimpleBox game={game}>
         <CardSimple container spacing={2} columns={16}>
           {games.length > 0 ? (
             games.map((data) => (

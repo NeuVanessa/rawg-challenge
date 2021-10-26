@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-const CardDetail = () => {
-    
-
+const CardDetail = (game) => {
+  console.log(game);
   return (
     <div>
- <h1>ola mundo</h1>
+      <h1>{game.name}</h1>
     </div>
   );
 };
