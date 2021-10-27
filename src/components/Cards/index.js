@@ -17,9 +17,6 @@ import { Link } from "react-router-dom";
 import Footer from "../FooterContainer/index";
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
-  // padding: theme.spacing(8),
-  // textAlign: 'center',
-  // color: theme.palette.text.secondary,
 }));
 
 export const Cards = () => {
