@@ -1,106 +1,105 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 //Material Ui
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import CardMedia from '@mui/material/CardMedia';
-import { Grid } from '@mui/material';
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import CardMedia from "@mui/material/CardMedia";
+import { Grid } from "@mui/material";
 
-//Container do Card
-export const SimpleBox = styled(Box)`
- background: transparent;
-
-`;
 //Card Container
 export const CardSimple = styled(Grid)`
- display:flex;
- justify-content:center;
- align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Loading = styled.h1`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  text-align: center;
+  left: 350px;
 `;
 
 // O card em si
 export const Card = styled(Grid)`
-background: red;
+  background: transparent;
 `;
-export const Image = styled(CardMedia)`
-display: flex;
-width: 46%;
-float: left;
-height: 128px;
 
+//Container do Card
+export const SimpleBox = styled(Box)`
+  position: absolute;
+  background: transparent;
+  margin-top: 150px;
+`;
+
+export const Image = styled(CardMedia)`
+  display: flex;
+  width: 46%;
+  float: left;
+  height: 128px;
 `;
 
 export const CardDetails = styled(Container)`
-display: column;
-width: 46%;
-float: left;
-background: white;
-height: 128px;
-
-
-`;
-
-export const Title = styled(Typography)`
-font-weight: bold;
-text-transform: uppercase;
-display: flex;
-
-`;
-
-export const Description = styled(Typography)`
-// display: flex;
-//   color: red;
-
-`;
-export const Search = styled(Container)`
-  min-width: 560px;
-  display: flex;
-  flex-direction: column;
-  input {
-    height: 50px;
-    width: 68%;
-    padding: 20px 15px;
-    background: #1f3042;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    margin-bottom: 25px;
-    transition: all 0.2s;
-    flex-direction: column;
-    &::placeholder {
-      color: #a9aaae;
-    }
-    &:focus {
-      border: 1px solid #000000;
-      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
-    }
+  display: column;
+  width: 46%;
+  float: left;
+  background-color: rgb(34, 51, 67);
+  height: 128px;
+  color: white;
+  &:hover {
+    color: black;
+    background: white;
+    transition: 0.5s ease-out;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 15px 20px 30px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 15px 20px 30px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    -o-box-shadow: rgba(0, 0, 0, 0.8) 15px 20px 30px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.8) 15px 20px 30px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
   }
 `;
 
-
-export const Cards = styled(Card)`
-  height: 300px;
-  width: 450px;
-  overflow: hidden;
-  margin: 30px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 30px 1 rgba(0, 0, 0, 0.3);
-  background-color: #7a1f30;
-`;
-
-export const Containers = styled(Grid)`
-border-radius: 4px;
-margin-bottom: 25px;
-padding-right: 10px;
-overflow: hidden;
-display: inline-block;
-background-color: #fff;
- text-decoration: none;
-`;
-export const CardLists = styled(Container)`
+export const Title = styled(Typography)`
+  font-weight: bold;
+  text-transform: uppercase;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background: #ffffff;
+`;
+
+export const Description = styled(Typography)`
+  // display: flex;
+  //   color: red;
+`;
+export const Search = styled.input`
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1.6rem;
+  border: 1px solid #d0cfce;
+  outline: none;
+  color: #ffff;
+  bottom: 35px;
+  &:focus {
+    border: 1px solid #ffff;
+    transition: 0.35s ease;
+    &::-webkit-input-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+    &:-ms-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+  }
 `;
