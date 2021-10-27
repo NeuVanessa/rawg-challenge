@@ -8,7 +8,7 @@ import {
   Title,
   Description,
   Search,
-  Loading
+  Loading,
 } from "./styles.js";
 import api from "../../services/api";
 import { styled } from "@mui/material/styles";
@@ -39,7 +39,6 @@ export const Cards = () => {
   return (
     <>
       <SimpleBox>
-        Base URL: {process.env.REACT_APP_BASE_URL ||  'NÃO ENCONTRADO A REACT_APP_BASE_URL '}
         {games.length > 0 ? (
           <Search onChange={(e) => setName(e.target.value)} />
         ) : null}
@@ -71,11 +70,22 @@ export const Cards = () => {
               </Card>
             ))
           ) : (
-            <>{games.length === 0 ? <Loading>Carregando Aguarde.[*--*].</Loading> : null}</>
+            <>
+              {games.length === 0 ? (
+                <Loading>Carregando Aguarde.[*--*].</Loading>
+              ) : null}
+            </>
           )}
         </CardSimple>
         <br />
-        {games.length > 0 ? <Footer /> : null}
+        {games.length > 0 ? <Footer /> : null} ||
+        {process.env.REACT_APP_BASE_URL === undefined ? (
+          <h1> Base Url: NÃO ENCONTRADO A BASE URL </h1>
+        ) : (
+          <>
+            <h1>Base URL: {process.env.REACT_APP_BASE_URL}</h1>
+          </>
+        )}
       </SimpleBox>
     </>
   );
