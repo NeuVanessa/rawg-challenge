@@ -1,7 +1,7 @@
 import React from "react";
 import Cards from "../../components/Cards";
 
-const Home = () => {
+export const Home = () => {
   return (
     <>
       <Cards />
