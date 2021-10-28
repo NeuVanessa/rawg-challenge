@@ -80,7 +80,9 @@ const Cards = () => {
           <h1> Base Url: NÃO ENCONTRADO A BASE URL </h1>
         ) : (
           <>
-            <h1>Base URL: {process.env.REACT_APP_BASE_URL}</h1>
+            <h1>Base URL: Sucesso, Carregando o Site!
+            </h1>
+            {/* {process.env.REACT_APP_BASE_URL} */}
           </>
         )}
       </SimpleBox>
