@@ -2,10 +2,8 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { SimpleContainer } from "./styles";
-export const SimpleCarousel = () => {
-
+const SimpleCarousel = () => {
   return (
-
     <SimpleContainer>
       <Carousel infiniteLoop useKeyboardArrows autoPlay>
         <div>

@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
 }));
 
-export const Cards = () => {
+const Cards = () => {
   const [games, setGames] = useState([]);
   const [setName] = useState("");
 
