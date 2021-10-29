@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
-import Home from "../pages/home";
+import Home from "../pages/Home";
 import Detail from "../pages/CardDetail";
-import GlobalStyle from "../assets/css";
+import GlobalStyle from "../utils/global";
+
 const Index = () => {
   return (
     <>
@@ -14,6 +15,7 @@ const Index = () => {
           <Route path="/games/:id" component={Detail} />
         </Switch>
       </Router>
+  
       <GlobalStyle />
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  CardSimple,
+  ContainerCard,
   Card,
   SimpleBox,
   Image,
@@ -39,10 +39,15 @@ const Cards = () => {
         {games.length > 0 ? (
           <Search onChange={(e) => setName(e.target.value)} />
         ) : null}
-        <CardSimple container spacing={2} columns={16}>
+        <ContainerCard container spacing={2} columns={16}>
           {games.length > 0 ? (
             games.map((game) => (
               <Card item xs={6} key={game.id}>
+                <Image
+                  component="img"
+                  image={game.background_image}
+                  alt={game.name}
+                />
                 <Link
                   key={game.id}
                   to={{
@@ -52,11 +57,6 @@ const Cards = () => {
                     },
                   }}
                 >
-                  <Image
-                    component="img"
-                    image={game.background_image}
-                    alt={game.name}
-                  />
                   <Item key={game.id}>
                     <CardDetails align="left">
                       <Title> {game.name}</Title>
@@ -73,16 +73,17 @@ const Cards = () => {
               ) : null}
             </>
           )}
-        </CardSimple>
+        </ContainerCard>
         <br />
         {games.length > 0 ? <Footer /> : null} ||
         {process.env.REACT_APP_BASE_URL === undefined ? (
           <h1> Base Url: NÃO ENCONTRADO A BASE URL </h1>
         ) : (
           <>
-            <h1>Base URL: Sucesso, Carregando o Site!
-            </h1>
-            {/* {process.env.REACT_APP_BASE_URL} */}
+            {process.env.REACT_APP_BASE_URL > 0 ? <Footer /> : null}:
+            {games.length === 0 ? (
+              <h1>Base URL: Encotrada Acesso ao Site!</h1>
+            ) : null}
           </>
         )}
       </SimpleBox>

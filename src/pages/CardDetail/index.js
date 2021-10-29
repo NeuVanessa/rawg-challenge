@@ -16,7 +16,6 @@ import {
   TitleGenres,
   TitlePlatforms,
 } from "./styles";
-
 const CardDetail = (props) => {
   const history = useHistory();
   const { game } = props.location.gameProps;

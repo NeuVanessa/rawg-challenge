@@ -8,10 +8,11 @@ import CardMedia from "@mui/material/CardMedia";
 import { Grid } from "@mui/material";
 
 //Card Container
-export const CardSimple = styled(Grid)`
+export const ContainerCard = styled(Grid)`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: red;
 `;
 export const Loading = styled.h1`
   position: relative;
@@ -25,13 +26,12 @@ export const Loading = styled.h1`
 
 // O card em si
 export const Card = styled(Grid)`
-  background: transparent;
+  background: blue;
 `;
 
 //Container do Card
 export const SimpleBox = styled(Box)`
   position: absolute;
-  background: transparent;
   margin-top: 150px;
 `;
 

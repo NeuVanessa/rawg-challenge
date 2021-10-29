@@ -1,20 +1,16 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  padding: 80px 60px;
-  background-color: rgb(34, 51, 67);
-  @media (max-width: 1000px) {
-    padding: 70px 30px;
-  }
+
+background:red;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.span`
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  /* background: red; */
 `;
 
 export const Column = styled.div`
@@ -26,11 +22,19 @@ export const Column = styled.div`
 
 export const Row = styled.div`
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  grid-gap: 20px;
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
+  grid-gap: 80px;
+
+  // @media (max-width: 360px) {
+  //   display: grid;
+  //   justify-content: center;
+  //   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  //   grid-gap: 80px;
+  // }
+  // @media (max-width: 1000px) {
+  //   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  // }
 `;
 
 export const Link = styled.a`
